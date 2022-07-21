@@ -2,9 +2,9 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { User } from './user';
 import { TypeOrmCrudService } from '@nestjsx/crud-typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
-import { RegistarUserDto } from '../auth/dto/registar-user.dto';
 import * as bcrypt from 'bcrypt';
 import { Repository } from 'typeorm';
+import { RegisterUserDto } from 'src/auth/dto/register-user.dto';
 
 @Injectable()
 export class UserService extends TypeOrmCrudService<User>{
@@ -12,7 +12,7 @@ export class UserService extends TypeOrmCrudService<User>{
     super(repo);
   }
 
-  async registrar(userDto: RegistarUserDto): Promise<User> {
+  async registrar(userDto: RegisterUserDto): Promise<User> {
 
     // check if the user exists in the db
     const userInDb = await this.repo.findOne({

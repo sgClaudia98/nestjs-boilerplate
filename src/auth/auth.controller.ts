@@ -6,7 +6,7 @@ import {
 import { AuthService } from './auth.service';
 import { AuthResponse } from './dto/auth-response.dto';
 import { LoginUserDto } from './dto/login-user.dto';
-import { RegistarUserDto } from './dto/registar-user.dto';
+import { RegisterUserDto } from './dto/register-user.dto';
 
 @Controller('/')
 export class AuthController {
@@ -22,8 +22,8 @@ export class AuthController {
 
 
   @Post('register')
-  public async register(@Body() registarUserDto: RegistarUserDto): Promise<AuthResponse> {
-    return await this.authService.register(registarUserDto);
+  public async register(@Body() registerUserDto: RegisterUserDto): Promise<AuthResponse> {
+    return await this.authService.register(registerUserDto);
   }
 
 }

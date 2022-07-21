@@ -1,11 +1,11 @@
 import { Body, Controller, HttpException, HttpStatus, Post } from '@nestjs/common';
 import { Crud, CrudController, CrudRequest, Override, ParsedBody, ParsedRequest } from '@nestjsx/crud';
-import { Usuario } from './usuario';
-import { UsuarioService } from './usuario.service';
+import { User } from './user';
+import { UserService } from './user.service';
 
 @Crud({
   model: {
-    type: Usuario
+    type: User
   },
   routes: {
     exclude: ['createManyBase']
@@ -20,7 +20,7 @@ import { UsuarioService } from './usuario.service';
   }
 })
 
-@Controller('usuarios')
-export class UsuarioController implements CrudController<Usuario>{
-  constructor(public service: UsuarioService) { }
+@Controller('users')
+export class UserController implements CrudController<User>{
+  constructor(public service: UserService) { }
 }

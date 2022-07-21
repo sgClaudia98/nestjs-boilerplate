@@ -5,9 +5,8 @@ import {
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthResponse } from './dto/auth-response.dto';
-import { RegistarUsuarioDto } from './dto/registar-usuario.dto';
-import { LoginUsuarioDto } from './dto/login-usuario.dto';
-import { UsuarioService } from '../usuario/usuario.service';
+import { LoginUserDto } from './dto/login-user.dto';
+import { RegistarUserDto } from './dto/registar-user.dto';
 
 @Controller('/')
 export class AuthController {
@@ -17,14 +16,14 @@ export class AuthController {
   ) { }
 
   @Post('login')
-  async login(@Body() loginUsuarioDto: LoginUsuarioDto): Promise<{ access_token: string }> {
-    return this.authService.login(loginUsuarioDto);
+  async login(@Body() loginUserDto: LoginUserDto): Promise<{ access_token: string }> {
+    return this.authService.login(loginUserDto);
   }
 
 
   @Post('register')
-  public async register(@Body() registarUsuarioDto: RegistarUsuarioDto): Promise<AuthResponse> {
-    return await this.authService.register(registarUsuarioDto);
+  public async register(@Body() registarUserDto: RegistarUserDto): Promise<AuthResponse> {
+    return await this.authService.register(registarUserDto);
   }
 
 }

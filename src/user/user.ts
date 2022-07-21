@@ -11,15 +11,15 @@ import * as bcrypt from 'bcrypt';
 import { Rol } from './rol';
 
 @Entity()
-export class Usuario extends BaseEntity {
+export class User extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  nombre: string;
+  name: string;
 
   @Column()
-  apellidos: string;
+  lastname: string;
 
   @Column()
   password: string;
@@ -27,7 +27,7 @@ export class Usuario extends BaseEntity {
   @Column({ length: 150, unique: true })
   email: string;
 
-  @ManyToOne(() => Rol, rol => rol.usuarios)
+  @ManyToOne(() => Rol, rol => rol.users)
   @JoinColumn()
   rol: Rol;
 

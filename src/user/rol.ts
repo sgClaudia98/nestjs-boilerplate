@@ -1,4 +1,4 @@
-import { Usuario } from './usuario';
+import { User } from './user';
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -15,6 +15,6 @@ export class Rol extends BaseEntity {
   @Column()
   rol: string;
 
-  @OneToMany(() => Usuario, usuario => usuario.rol)
-  usuarios: Usuario[];
+  @OneToMany(() => User, user => user.rol)
+  users: User[];
 }

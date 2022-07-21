@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { JwtStrategy } from './jwt.strategy';
-import { UsuarioModule } from '../usuario/usuario.module';
+import { UserModule } from '../user/user.module';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { LocalStrategy } from './local.strategy';
@@ -11,7 +11,7 @@ import { AuthController } from './auth.controller';
 
 @Module({
   imports: [
-    UsuarioModule,
+    UserModule,
     PassportModule.registerAsync({
       useFactory: async (configService: ConfigService) =>
         (configService.get('passportAuth')),

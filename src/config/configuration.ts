@@ -19,7 +19,7 @@ export default () => ({
   },
   passportAuth: {
     defaultStrategy: 'jwt',
-    property: 'usuario',
+    property: 'user',
     session: false,
   },
   swaggerEndpoint: process.env.SWAGGER_ENDPOINT,
